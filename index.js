@@ -3,10 +3,11 @@ const fs = require('fs')
 const inspect = require('object-inspect')
 
 const express = require('express')
-const bodyParser = require('body-parser')
+//const bodyParser = require('body-parser')
 
 // create application/x-www-form-urlencoded parser
-const urlencodedParser = bodyParser.urlencoded({ extended: true })
+//const urlencodedParser = bodyParser.urlencoded({ extended: true })
+const urlencodedParser = express.urlencoded({ extended: true })
 
 const app = express(); 
 app.get('/', async (req, res) => {
