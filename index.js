@@ -1,5 +1,7 @@
 const fs = require('fs')
 
+const inspect = require('object-inspect')
+
 const express = require('express');
 
 const app = express(); 
@@ -10,7 +12,8 @@ app.get('/', async (req, res) => {
 })
 
 app.post('/test', async (req, res) => {
-  console.log(JSON.stringify(req))
+  // console.log(JSON.stringify(req))
+  console.log(inspect(req.body))
 })
 
 module.exports = app
