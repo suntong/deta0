@@ -2,7 +2,11 @@ const fs = require('fs')
 
 const inspect = require('object-inspect')
 
-const express = require('express');
+const express = require('express')
+const bodyParser = require('body-parser')
+
+// create application/x-www-form-urlencoded parser
+const urlencodedParser = bodyParser.urlencoded({ extended: true })
 
 const app = express(); 
 app.get('/', async (req, res) => {
@@ -11,9 +15,11 @@ app.get('/', async (req, res) => {
   res.send('Hello World')
 })
 
-app.post('/test', async (req, res) => {
+app.post('/test', urlencodedParser, async (req, res) => {
   // console.log(JSON.stringify(req))
-  console.log(inspect(req.body))
+  // console.log(inspect(req.body))
+  console.log(req.body)
+  res.json(req.body)
 })
 
 module.exports = app
