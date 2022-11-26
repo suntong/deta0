@@ -7,6 +7,10 @@ app.get('/', async (req, res) => {
   fs.writeFileSync('/tmp/abc','def')
   fs.renameSync('/tmp/abc','/tmp/def')
   res.send('Hello World')
-});
+})
 
-module.exports = app;
+app.post('/test', async (req, res) => {
+  console.log(JSON.stringify(req))
+})
+
+module.exports = app
